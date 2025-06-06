@@ -1,0 +1,274 @@
+                ### Fluxo Vendedor
+
+### 🔐 Realizar registro
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "nomeUsuario": "vendedor",
+  "nome": "vendedor",
+  "senha": "123456",
+  "email": "vendedor@mail.com",
+  "role": "MANAGER" 
+}
+//ROLES: ADMIN, USER ou MANAGER
+
+### 🔐 Realizar login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "nomeUsuario": "vendedor",
+  "senha": "123456"
+}
+
+###Criar loja
+POST http://localhost:3000/loja
+Content-Type: application/json
+Authorization: Bearer ##colar aqui o token##
+
+{
+  "nome":"nome",
+  "descricao":"descrição"
+}
+
+###Editar loja
+PATCH  http://localhost:3000/loja
+Content-Type: application/json
+Authorization: Bearer ##colar aqui o token##
+
+{
+  "nome":"Frutinha",
+  "descricao":"Loja de frutinhas"
+}
+
+### Adicionar endereço pra loja
+POST http://localhost:3000/enderecos/loja
+Content-Type: application/json
+Authorization: Bearer ##colar aqui o token##
+
+{
+  "nome":"Loja",
+  "rua" : "rua bonita",
+  "numero": "01",
+  "bairro": "bairro",
+  "cidade": "cidade bonita",
+  "cep": "1234567",
+  "estado":"estado bonito"
+}
+
+
+### Atulizar endereço da loja
+PATCH http://localhost:3000/enderecos/lojas
+Content-Type: application/json
+Authorization: Bearer ##colar aqui o token##
+
+{
+  "nome":"Loja",
+  "rua" : "rua bonita",
+  "numero": "15"
+}
+
+###Adicionar produto na loja
+POST http://localhost:3000/produtos
+Content-Type: application/json
+Authorization: Bearer ##colar aqui o token##
+
+{
+  "nome": "maçã",
+  "descricao": "maçã fuji",
+  "preco": 3.99,
+  "quantidade": 45
+}
+
+### Pegar o seus produtos
+GET http://localhost:3000/loja/1/myprodutos
+Authorization: Bearer ##colar aqui o token##
+
+
+### Buscar todos os produtos de uma loja
+GET http://localhost:3000/loja/{idLoja}/produtos
+Authorization: Bearer ##colar aqui o token##
+
+### Alterar produto
+PATCH http://localhost:3000/produtos/{idProduto}
+Content-Type: application/json
+Authorization: Bearer ##colar aqui o token##
+
+{
+  "preco": 4,
+  "quantidade": 50
+}
+
+### Deletar produto
+DELETE http://localhost:3000/produtos/{idProduto}
+Authorization: Bearer ##colar aqui o token##
+
+
+### Buscar todas compras que a loja teve, 
+GET http://localhost:3000/loja/1/compras 
+Authorization: Bearer ##colar aqui o token##
+
+#não importa o id do link o que vai ser contado e o token, mas por algum motivo se não passar nenhum id não funciona :/
+
+### Listar todos os produtos do BD (somente ADM)
+GET http://localhost:3000/produtos
+Authorization: Bearer ##colar aqui o token##
+
+              ###Fluxo Cliente
+### 🔐 Realizar registro
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "nomeUsuario": "cliente2",
+  "nome": "vendedor",
+  "senha": "123456",
+  "email": "vendedor@mail.com",
+  "role": "USER"
+}
+
+
+
+### 🔐 Realizar login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "nomeUsuario": "cliente2",
+  "senha": "123456"
+}
+
+### buscar todas as lojas
+GET http://localhost:3000/loja
+
+### buscar uma loja especifica, com seu endereço e produtos
+GET http://localhost:3000/loja/{idLoja}
+
+### Buscar todos os produtos de uma loja(o de cima ja retorna produtos tbm)
+GET http://localhost:3000/loja/{idLoja}/produtos
+
+### Criar endereco
+POST http://localhost:3000/enderecos/user
+Content-Type: application/json
+Authorization: Bearer ##colar aqui o token##
+
+{
+  "nome":"casa",
+  "rua" : "rua bonita",
+  "numero": "50",
+  "bairro": "bairro",
+  "cidade": "cidade bonita",
+  "cep": "1234567",
+  "estado":"estado bonito"
+}
+
+### Pegar todos endereços do usuario
+GET http://localhost:3000/users/endereco
+Authorization: Bearer ##colar aqui o token##
+
+###Atulizar Endereço
+PATCH http://localhost:3000/enderecos/{idEndereço}
+Content-Type: application/json
+Authorization: Bearer ##colar aqui o token##
+
+{
+  "numero": "55"
+}
+
+### Realizar compra
+POST http://localhost:3000/compra
+Content-Type: application/json
+Authorization: Bearer ##colar aqui o token##
+
+{
+  "produtoId": 1,
+  "quantidade": 5,
+  "enderecoId": 2,
+  "pagamento":{
+    "metodo": "pix"
+  }
+}
+
+
+### Buscar compras do usuario
+GET http://localhost:3000/users/compras
+Authorization: Bearer ##colar aqui o token##
+
+
+### Alterar status da compra
+PATCH  http://localhost:3000/compra/1/status
+Content-Type: application/json
+Authorization: Bearer ##colar aqui o token##
+
+{
+  "statusId":2
+}
+
+##  2- Cocluido, 3-Cancelado
+##Obs: uma compra so pode ser concluida quando pagamento for concluido. Se compra for cancelada pagamento vai ser automaticamente tbm
+
+### Alterar status do pagamento
+PATCH  http://localhost:3000/pagamento/{idPagamento}/status
+Content-Type: application/json
+Authorization: Bearer ##colar aqui o token##
+
+{
+  "statusId":2
+}
+###2- Cocluido, 3-Cancelado
+
+### Pegar detalhes do user
+GET http://localhost:3000/users/1
+Authorization: Bearer ##colar aqui o token##
+
+#não importa o id do link o que vai ser contado e o token, mas por algum motivo se não passar nenhum id não funciona :/
+
+### Adicionar loja favorita
+POST http://localhost:3000/favoritos
+Content-Type: application/json
+Authorization: Bearer ##colar aqui o token##
+
+{
+  "idLoja": 1
+}
+
+### Pegar suas lojas favoritas
+GET http://localhost:3000/favoritos
+Authorization: Bearer ##colar aqui o token##
+
+### Retirar favorito de uma loja
+DELETE http://localhost:3000/favoritos/1
+Authorization: Bearer ##colar aqui o token##
+
+### Realizar Avaliação
+POST http://localhost:3000/avaliacao
+Content-Type: application/json
+Authorization: Bearer ##colar aqui o token##
+
+{
+  "nota": 1,
+  "comentario": "muito ruim",
+  "lojaId": 1
+}
+
+### Pegar todas avaliação de uma loja
+GET http://localhost:3000/avaliacao/loja/1
+
+###Pegar todas avaliação de um usuario
+GET http://localhost:3000/avaliacao/user/
+Authorization: Bearer ##colar aqui o token##
+
+###Editar uma avaliação
+PATCH http://localhost:3000/avaliacao/1
+Content-Type: application/json
+Authorization: Bearer ##colar aqui o token##
+
+{
+  "nota": 2,
+  "comentario": "boa"
+}
+
+###Deletar uma avalição
+DELETE http://localhost:3000/avaliacao/1
+Authorization: Bearer ##colar aqui o token##
