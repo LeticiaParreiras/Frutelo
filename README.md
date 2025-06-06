@@ -9,7 +9,7 @@ Frutelo é uma aplicação inspirada no modelo do iFood, com foco em hortifrúti
 Clone o repositório e entre na pasta do projeto:
 
 ```bash
-git clone <link-do-repositório>
+git clone https://github.com/LeticiaParreiras/Frutelo
 cd Frutelo
 ```
 Em seguida, instale as dependências tanto no backend quanto no frontend:
