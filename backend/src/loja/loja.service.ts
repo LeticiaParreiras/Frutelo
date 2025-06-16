@@ -61,6 +61,16 @@ async getLojaProdutos(lojaId: number): Promise<Produto[]> {
     return loja.produtos;
   }
 
+  async myLoja(userId: number): Promise<Loja> {
+    const loja = await this.repository.findOne({
+      where: { vendedor: { id: userId } },
+    });
+    if (!loja) {
+      throw new NotFoundException(`Loja ainda não foi criada`);
+    }
+    return loja;
+  }
+
 async getMyProdutos(userId: number): Promise<Produto[]> {
     const loja = await this.repository.findOne({
       where: {vendedor:{ id: userId }},

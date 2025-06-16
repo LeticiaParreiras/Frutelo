@@ -25,7 +25,7 @@ Content-Type: application/json
 ###Criar loja
 POST http://localhost:3000/loja
 Content-Type: application/json
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsIm5vbWVVc3VhcmlvIjoidmVuZGVkb3IiLCJyb2xlIjoiTUFOQUdFUiIsImlhdCI6MTc1MDAxOTQyNiwiZXhwIjoxNzUwMDIzMDI2fQ.HBK8gDiu2V9r1sYl3E4VQUsrh153xL92eobmVmJDOz8
 
 {
   "nome":"nome",
@@ -41,6 +41,9 @@ Authorization: Bearer ##colar aqui o token##
   "nome":"Frutinha",
   "descricao":"Loja de frutinhas"
 }
+### pegar sua loja
+GET http://localhost:3000/loja/1/myLoja
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsIm5vbWVVc3VhcmlvIjoidmVuZGVkb3IiLCJyb2xlIjoiTUFOQUdFUiIsImlhdCI6MTc1MDAxOTQyNiwiZXhwIjoxNzUwMDIzMDI2fQ.HBK8gDiu2V9r1sYl3E4VQUsrh153xL92eobmVmJDOz8
 
 ### Adicionar endereço pra loja
 POST http://localhost:3000/enderecos/loja

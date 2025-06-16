@@ -1,0 +1,77 @@
+import { useState } from 'react';
+import { register } from '../services/auth';
+import { useNavigate, Link } from 'react-router-dom';
+
+export default function Register() {
+  const [form, setForm] = useState({
+    nomeUsuario: '',
+    nome: '',
+    senha: '',
+    email: '',
+    role: "MANAGER" 
+  });
+
+  const navigate = useNavigate();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await register({ ...form });
+      alert('Cadastro realizado!');
+      navigate('/login');
+    } catch (err) {
+      alert('Erro ao cadastrar');
+    }
+  };
+
+  return (
+    <div className="container">
+      <form onSubmit={handleSubmit}>
+        <h2>Cadastro</h2>
+        <input
+          name="nomeUsuario"
+          placeholder="Usuário"
+          value={form.nomeUsuario}
+          onChange={handleChange}
+          autoComplete="username"
+          required
+        />
+        <input
+          name="nome"
+          placeholder="Nome"
+          value={form.nome}
+          onChange={handleChange}
+          autoComplete="name"
+          required
+        />
+        <input
+          name="email"
+          type="email"
+          placeholder="Email"
+          value={form.email}
+          onChange={handleChange}
+          autoComplete="email"
+          required
+        />
+        <input
+          name="senha"
+          type="password"
+          placeholder="Senha"
+          value={form.senha}
+          onChange={handleChange}
+          autoComplete="new-password"
+          required
+        />
+        <button type="submit">Cadastrar</button>
+      </form>
+
+      <p>
+        Já tem uma conta? <Link to="/login">Faça o login aqui</Link>
+      </p>
+    </div>
+  );
+}

@@ -6,7 +6,7 @@ import { CreateCompraDto } from './dto/create-compra.dto';
 import { Pagamento } from 'src/pagamento/entities/pagamento.entity';
 import { Produto } from 'src/produtos/entities/produto.entity';
 import { UpdateCompraDto } from './dto/update-compra.dto';
-import { User, UserRole } from 'src/user/entities/user.entity';
+import { User } from 'src/user/entities/user.entity';
 import { Endereco } from 'src/enderecos/entities/endereco.entity';
 import { Loja } from 'src/loja/entities/loja.entity';
 

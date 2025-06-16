@@ -40,6 +40,13 @@ export class LojaController {
     return this.lojaService.getLojaProdutos(req.user.userId);
   }
 
+  @Get(':id/myloja')
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
+  @Roles(UserRole.ADMIN, UserRole.MANAGER)
+  getMyLoja(@Req() req: any) {
+    return this.lojaService.myLoja(req.user.userId);
+  }
+
   @Get(':id/compras') //por algum motivo se não passar o id, não funciona
   @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Roles(UserRole.ADMIN, UserRole.MANAGER)
