@@ -32,6 +32,7 @@ export default function Register() {
     <div className="container">
       <form onSubmit={handleSubmit}>
         <h2>Cadastro</h2>
+        <p>Nome do Usuário:</p>
         <input
           name="nomeUsuario"
           placeholder="Usuário"
@@ -40,6 +41,7 @@ export default function Register() {
           autoComplete="username"
           required
         />
+        <p>Nome:</p>
         <input
           name="nome"
           placeholder="Nome"
@@ -48,6 +50,7 @@ export default function Register() {
           autoComplete="name"
           required
         />
+        <p>E-mail:</p>
         <input
           name="email"
           type="email"
@@ -57,6 +60,7 @@ export default function Register() {
           autoComplete="email"
           required
         />
+        <p>Senha:</p>
         <input
           name="senha"
           type="password"

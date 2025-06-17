@@ -40,11 +40,10 @@ header img {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 800px;
-  min-height: 400px;
+  max-height: 500px;
 }
 
 input {
-  display: block;
   width: 100%;
   padding: 10px;
   margin: 0.5rem 0;
@@ -85,4 +84,20 @@ button:hover {
 a {
   color: #4CAF50;
   text-decoration: none;
+}
+
+.delete-btn{
+  background-color: white;
+  border-color: red;
+  color: red;
+}
+
+.delete-btn:hover{
+  background-color: red;
+  color: white;
+}
+
+form p{
+  text-align: left;
+  margin-top: 15px;
 }

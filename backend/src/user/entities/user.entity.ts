@@ -51,7 +51,6 @@ export class User {
       favorito: Favorito[];
 
   @BeforeInsert()
-  @BeforeUpdate()
   async hashPassword() {
     if (this.senha) {
       this.senha = await bcrypt.hash(this.senha, 10);

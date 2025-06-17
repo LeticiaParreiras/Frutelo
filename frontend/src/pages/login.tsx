@@ -22,12 +22,14 @@ export default function Login() {
   <div className="container">
     <form onSubmit={handleSubmit}>
       <h2>Login</h2>
+      <p>Nome do Usuário:</p>
       <input
         value={nomeUsuario}
         onChange={e => setNomeUsuario(e.target.value)}
         placeholder="Nome de usuário"
         required
       />
+      <p>Senha:</p>
       <input
         type="password"
         value={senha}

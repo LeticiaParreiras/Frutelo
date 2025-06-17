@@ -34,3 +34,4 @@ export default function HomeRedirect() {
 
   return <p>Carregando loja...</p>;
 }
+

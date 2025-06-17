@@ -7,7 +7,7 @@ Content-Type: application/json
 {
   "nomeUsuario": "vendedor",
   "nome": "vendedor",
-  "senha": "123456",
+  "senha": "senha",
   "email": "vendedor@mail.com",
   "role": "MANAGER" 
 }
@@ -19,7 +19,7 @@ Content-Type: application/json
 
 {
   "nomeUsuario": "vendedor",
-  "senha": "123456"
+  "senha": "senha"
 }
 
 ###Criar loja
