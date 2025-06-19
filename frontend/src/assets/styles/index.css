@@ -43,7 +43,7 @@ header img {
   max-height: 500px;
 }
 
-input {
+input, select {
   width: 100%;
   padding: 10px;
   margin: 0.5rem 0;

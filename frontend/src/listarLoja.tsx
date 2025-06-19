@@ -1,7 +1,7 @@
 // listaLojas.tsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import type { Loja } from './Loja';
+import type { Loja } from './assets/interface/Loja';
 
 const ListaLojas: React.FC = () => {
   const [lojas, setLojas] = useState<Loja[]>([]);

@@ -28,6 +28,7 @@ let LojaController = class LojaController {
         this.lojaService = lojaService;
     }
     createLoja(req, dto) {
+        console.log(req.user);
         return this.lojaService.create(dto, req.user.userId);
     }
     findAll() {

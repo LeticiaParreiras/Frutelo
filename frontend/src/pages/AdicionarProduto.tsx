@@ -21,8 +21,7 @@ export default function AdicionarProduto() {
     e.preventDefault();
     try {
       await api.post('/produtos', produto);
-      alert('Produto adicionado com sucesso!');
-      navigate('/home');
+      navigate('/homemanager');
     } catch (err) {
       console.error(err);
       alert('Erro ao adicionar produto');

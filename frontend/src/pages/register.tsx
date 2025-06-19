@@ -8,7 +8,7 @@ export default function Register() {
     nome: '',
     senha: '',
     email: '',
-    role: "MANAGER" 
+    role: '' 
   });
 
   const navigate = useNavigate();
@@ -60,6 +60,12 @@ export default function Register() {
           autoComplete="email"
           required
         />
+        <p>Tipo perfil:</p>
+        <select name="role" value={form.role} onChange={handleChange} required>
+        <option value="">Selecione o tipo de perfil</option>
+        <option value="MANAGER">Vendedor</option>
+        <option value="USER">Cliente</option>
+        </select>
         <p>Senha:</p>
         <input
           name="senha"

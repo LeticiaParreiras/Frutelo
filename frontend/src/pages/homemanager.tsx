@@ -4,7 +4,7 @@ import api from '../services/api';
 import { logout } from '../services/auth';
 import '../assets/styles/home.css'
 
-export default function Home() {
+export default function HomeManager() {
   const [produtos, setProdutos] = useState([]);
   const navigate = useNavigate();
 
@@ -45,10 +45,12 @@ export default function Home() {
       <div className="actions">
         <button className="add-button" onClick={() => navigate('/adicionar-produto')}>Adicionar Produto</button>
       </div>
-
+      <h2>Meus produtos</h2>
       <div className="product-list">
+        
         {produtos.length > 0 ? (
           produtos.map((produto: any) => (
+            
             <div key={produto.id} className="product-card" onClick={() => navigate(`/produto/${produto.id}`)}>
               <h3>{produto.nome}</h3>
               <p>{produto.descricao}</p>

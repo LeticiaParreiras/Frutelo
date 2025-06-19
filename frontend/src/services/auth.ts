@@ -16,7 +16,6 @@ interface LoginData {
 export const register = async (data: RegisterData) => {
   const res = await api.post('/auth/register', {
     ...data,
-    role: data.role ?? 'MANAGER'
   });
   return res.data;
 };
@@ -24,6 +23,7 @@ export const register = async (data: RegisterData) => {
 export const login = async (data: LoginData) => {
   const res = await api.post('/auth/login', data);
   localStorage.setItem('token', res.data.access_token);
+  localStorage.setItem('role', res.data.role);
   return res.data;
 };
 

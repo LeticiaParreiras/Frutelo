@@ -36,8 +36,7 @@ export default function EditarProduto() {
     e.preventDefault();
     try {
       await api.patch(`/produtos/${id}`, produto);
-      alert('Produto atualizado com sucesso!');
-      navigate('/home');
+      navigate('/homemanager');
     } catch (err) {
       console.error(err);
       alert('Erro ao atualizar produto');
@@ -49,7 +48,7 @@ export default function EditarProduto() {
       try {
         await api.delete(`/produtos/${id}`);
         alert('Produto excluído com sucesso!');
-        navigate('/home');
+        navigate('/homemanager');
       } catch (err) {
         console.error(err);
         alert('Erro ao excluir produto');

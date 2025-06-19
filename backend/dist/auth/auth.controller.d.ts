@@ -6,6 +6,7 @@ export declare class AuthController {
     register(registerDto: RegisterDto): Promise<import("../user/entities/user.entity").User>;
     login(loginDto: LoginDto): Promise<{
         access_token: string;
+        role: string;
     }>;
     logout(): string;
     remember(): string;

@@ -25,7 +25,7 @@ export class AuthService {
       throw error;
     }
   }
-  async login(dto: LoginDto): Promise<{ access_token: string }> {
+  async login(dto: LoginDto): Promise<{ access_token: string, role: string }> {
     const user = await this.userRepository.findOne({
       where: { nomeUsuario: dto.nomeUsuario },
     });
@@ -34,7 +34,7 @@ export class AuthService {
     }
     const payload = { sub: user.id, nomeUsuario: user.nomeUsuario, role: user.role };
     return {
-      access_token: this.jwtService.sign(payload),
+      access_token: this.jwtService.sign(payload), role: user.role,
     };
     }
 

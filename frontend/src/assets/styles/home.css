@@ -45,13 +45,17 @@
 }
 
 
-.product-list {
+.product-list, .loja-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
 }
 
-.product-card {
+h2{
+  margin-bottom: 15px;
+}
+
+.product-card, .loja-card {
   border: 1px solid #ccc;
   padding: 15px;
   border-radius: 10px;
@@ -59,11 +63,30 @@
   transition: box-shadow 0.3s;
 }
 
-.product-card:hover {
+.loja-container{
+  margin-bottom: 50px;
+}
+
+.product-card:hover, .loja-card:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .no-products {
   text-align: center;
   color: #777;
+}
+
+.back {
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: bolder;
+  margin: 10px;
+}
+
+.back:hover{
+    color: #4CAF50;
+}
+
+.endereco-container{
+  padding: 15px;
 }

@@ -3,10 +3,12 @@ import Login from './pages/login';
 import Register from './pages/register';
 //import PrivateRoute from './assets/components/PrivateRoute';
 import CriarLoja from './pages/criarLoja';
-import Home from './pages/home';
+import HomeManager from './pages/homemanager';
 import HomeRedirect from './pages/homeRedirect';
 import EditarProduto from './pages/EditarProduto';
 import AdicionarProduto from './pages/AdicionarProduto';
+import HomeCliente from './pages/homeClient';
+import LojaDetalhes from './pages/loja';
 
 export default function Router() {
   return (
@@ -17,9 +19,12 @@ export default function Router() {
         <Route path="/register" element={<Register />} />
           <Route path="/homeRedirect" element={<HomeRedirect />} />
           <Route path="/criarloja" element={<CriarLoja />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/homemanager" element={<HomeManager />} />
           <Route path="/produto/:id" element={<EditarProduto />} />
           <Route path="/adicionar-produto" element={<AdicionarProduto />} />
+          <Route path='/homeclient' element={<HomeCliente/>}/>
+          <Route path='loja/:id' element= {<LojaDetalhes/>}/>
+
       </Routes>
     </BrowserRouter>
   );

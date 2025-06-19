@@ -3,35 +3,36 @@ import { useNavigate } from 'react-router-dom';
 import { getMyLoja } from '../services/loja';
 
 export default function HomeRedirect() {
- const navigate = useNavigate();
+  const navigate = useNavigate();
+  const userRole = localStorage.getItem('role');
 
   useEffect(() => {
-    async function checkLoja() {
+    const redirectManager = async () => {
       try {
         const response = await getMyLoja();
         const loja = response.data;
 
         if (loja) {
-          // Loja encontrada → redireciona para página principal
-          navigate('/home');
+          navigate('/homemanager');
         } else {
-          // Por precaução, se a resposta for nula
           navigate('/criarloja');
         }
       } catch (err: any) {
         if (err.response?.status === 404) {
-          // Loja não existe → redireciona para criação
           navigate('/criarloja');
         } else {
-          // Outro erro (ex: token inválido)
           alert('Erro ao verificar loja');
         }
       }
-    }
+    };
 
-    checkLoja();
-  }, [navigate]);
+    if (userRole === 'MANAGER') {
+      redirectManager();
+    } else if (userRole === 'USER') {
+      navigate('/homeclient');
+    } 
+  }, [navigate, userRole]);
 
-  return <p>Carregando loja...</p>;
+  return <p>Carregando ...</p> ;
+  
 }
-

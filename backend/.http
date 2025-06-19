@@ -25,11 +25,11 @@ Content-Type: application/json
 ###Criar loja
 POST http://localhost:3000/loja
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsIm5vbWVVc3VhcmlvIjoidmVuZGVkb3IiLCJyb2xlIjoiTUFOQUdFUiIsImlhdCI6MTc1MDAxOTQyNiwiZXhwIjoxNzUwMDIzMDI2fQ.HBK8gDiu2V9r1sYl3E4VQUsrh153xL92eobmVmJDOz8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsIm5vbWVVc3VhcmlvIjoidmVuZGVkb3IiLCJyb2xlIjoiTUFOQUdFUiIsImlhdCI6MTc1MDM0NTU5NiwiZXhwIjoxNzUwMzQ5MTk2fQ.qzVGbXYTH_SayBqgUFLoTUK7xXyMi0hCYfPvU0XYMfU
 
 {
-  "nome":"nome",
-  "descricao":"descrição"
+  "nome":"Lojinha",
+  "descricao":"Melhor Lojinha"
 }
 
 ###Editar loja
@@ -48,7 +48,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsIm5vbWVVc
 ### Adicionar endereço pra loja
 POST http://localhost:3000/enderecos/loja
 Content-Type: application/json
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsIm5vbWVVc3VhcmlvIjoidmVuZGVkb3IiLCJyb2xlIjoiTUFOQUdFUiIsImlhdCI6MTc1MDM1ODA4NiwiZXhwIjoxNzUwMzYxNjg2fQ.VBw5DeVx7yQi5uyAcvmh8xuDhAtwDIwX4HCWp4DKYw8
 
 {
   "nome":"Loja",
@@ -146,7 +146,7 @@ Content-Type: application/json
 GET http://localhost:3000/loja
 
 ### buscar uma loja especifica, com seu endereço e produtos
-GET http://localhost:3000/loja/{idLoja}
+GET http://localhost:3000/loja/1
 
 ### Buscar todos os produtos de uma loja(o de cima ja retorna produtos tbm)
 GET http://localhost:3000/loja/{idLoja}/produtos

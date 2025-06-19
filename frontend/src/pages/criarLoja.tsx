@@ -39,7 +39,7 @@ export default function CriarLoja() {
       await api.post('/enderecos/loja', { ...endereco });
 
       alert('Loja e endereço criados com sucesso!');
-      navigate(`/home`);
+      navigate(`/homemanager`);
     } catch (err) {
       console.error(err);
       alert('Erro ao criar loja ou endereço');
