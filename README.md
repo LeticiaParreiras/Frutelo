@@ -49,7 +49,7 @@ Lá você encontra a documentação interativa da API.
 
 Instale a extensão Rest Client no VSCode, abra o arquivo .http presente no projeto e envie as requisições diretamente.
 
-#🏃‍♀️ Como executar o frontend
+# 🏃‍♀️ Como executar o frontend
 Ainda com backend rodando, abre um novo terminal e rode na pasta frontend:
 ```bash
 npm run dev
