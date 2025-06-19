@@ -27,10 +27,9 @@ npm install
 cd ../frontend
 npm install
 ```
-⚠️ Obs: o frontend ainda está em fase inicial e não foi implementado.
 
 # 🏃‍♀️ Como executar o backend
-No diretório backend, execute o servidor em modo desenvolvimento:
+No diretório backend, execute :
 
 ```bash
 npm run start:dev
@@ -50,5 +49,9 @@ Lá você encontra a documentação interativa da API.
 
 Instale a extensão Rest Client no VSCode, abra o arquivo .http presente no projeto e envie as requisições diretamente.
 
-### 📌 Observações
-A API utiliza autenticação via JWT. Para acessar rotas protegidas, é necessário gerar e usar um token válido.
+#🏃‍♀️ Como executar o frontend
+Ainda com backend rodando, abre um novo terminal e rode na pasta frontend:
+```bash
+npm run dev
+```
+Após isso, abra o navegador e acesse o endereço exibido no terminal (geralmente http://localhost:5173) para utilizar a aplicação frontend.
