@@ -26,11 +26,14 @@ export class PagamentoService {
     switch (updatepagamentoDto.statusId) {
       case 2: // Concluir
         pagamento.status.id = 2;
+        pagamento.status.nome = "cocluido";
         break;
   
       case 3: // Cancelar
         pagamento.status.id = 3;
+        pagamento.status.nome = "cancelado";
         pagamento.compra.status.id = 3;
+        pagamento.compra.status.nome = "cancelado";
         await this.pagamentoRepository.save(pagamento.compra);
         break;
   

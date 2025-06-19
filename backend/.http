@@ -5,10 +5,10 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-  "nomeUsuario": "vendedor",
-  "nome": "vendedor",
+  "nomeUsuario": "igor",
+  "nome": "Igor Prado",
   "senha": "senha",
-  "email": "vendedor@mail.com",
+  "email": "igor@mail.com",
   "role": "MANAGER" 
 }
 //ROLES: ADMIN, USER ou MANAGER
@@ -18,64 +18,60 @@ POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-  "nomeUsuario": "vendedor",
+  "nomeUsuario": "igor",
   "senha": "senha"
 }
 
 ###Criar loja
 POST http://localhost:3000/loja
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsIm5vbWVVc3VhcmlvIjoidmVuZGVkb3IiLCJyb2xlIjoiTUFOQUdFUiIsImlhdCI6MTc1MDM0NTU5NiwiZXhwIjoxNzUwMzQ5MTk2fQ.qzVGbXYTH_SayBqgUFLoTUK7xXyMi0hCYfPvU0XYMfU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsIm5vbWVVc3VhcmlvIjoiaWdvciIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzUwMzYyMzAzLCJleHAiOjE3NTAzNjU5MDN9.H3PS1v-5ZEdx48Fgfqkq3IABWwHgM0HkIF-F7KJTroI
 
 {
-  "nome":"Lojinha",
+  "nome":"Loja da Ley",
   "descricao":"Melhor Lojinha"
 }
 
 ###Editar loja
 PATCH  http://localhost:3000/loja
 Content-Type: application/json
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsIm5vbWVVc3VhcmlvIjoiaWdvciIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzUwMzYyMzAzLCJleHAiOjE3NTAzNjU5MDN9.H3PS1v-5ZEdx48Fgfqkq3IABWwHgM0HkIF-F7KJTroI
 
 {
-  "nome":"Frutinha",
   "descricao":"Loja de frutinhas"
 }
 ### pegar sua loja
 GET http://localhost:3000/loja/1/myLoja
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsIm5vbWVVc3VhcmlvIjoidmVuZGVkb3IiLCJyb2xlIjoiTUFOQUdFUiIsImlhdCI6MTc1MDAxOTQyNiwiZXhwIjoxNzUwMDIzMDI2fQ.HBK8gDiu2V9r1sYl3E4VQUsrh153xL92eobmVmJDOz8
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsIm5vbWVVc3VhcmlvIjoiaWdvciIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzUwMzYyMzAzLCJleHAiOjE3NTAzNjU5MDN9.H3PS1v-5ZEdx48Fgfqkq3IABWwHgM0HkIF-F7KJTroI
 ### Adicionar endereço pra loja
 POST http://localhost:3000/enderecos/loja
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsIm5vbWVVc3VhcmlvIjoidmVuZGVkb3IiLCJyb2xlIjoiTUFOQUdFUiIsImlhdCI6MTc1MDM1ODA4NiwiZXhwIjoxNzUwMzYxNjg2fQ.VBw5DeVx7yQi5uyAcvmh8xuDhAtwDIwX4HCWp4DKYw8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsIm5vbWVVc3VhcmlvIjoiaWdvciIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzUwMzYyMzAzLCJleHAiOjE3NTAzNjU5MDN9.H3PS1v-5ZEdx48Fgfqkq3IABWwHgM0HkIF-F7KJTroI
 
 {
   "nome":"Loja",
-  "rua" : "rua bonita",
-  "numero": "01",
-  "bairro": "bairro",
-  "cidade": "cidade bonita",
+  "rua" : "Pistão sul",
+  "numero": "33",
+  "bairro": "Taguatinga Sul",
+  "cidade": "Taguatinga",
   "cep": "1234567",
-  "estado":"estado bonito"
+  "estado":"Distrito Federal"
 }
 
 
 ### Atulizar endereço da loja
 PATCH http://localhost:3000/enderecos/lojas
 Content-Type: application/json
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsIm5vbWVVc3VhcmlvIjoiaWdvciIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzUwMzYyMzAzLCJleHAiOjE3NTAzNjU5MDN9.H3PS1v-5ZEdx48Fgfqkq3IABWwHgM0HkIF-F7KJTroI
 
 {
-  "nome":"Loja",
-  "rua" : "rua bonita",
-  "numero": "15"
+ "cep": "71953180"
 }
 
 ###Adicionar produto na loja
 POST http://localhost:3000/produtos
 Content-Type: application/json
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsIm5vbWVVc3VhcmlvIjoiaWdvciIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzUwMzYyMzAzLCJleHAiOjE3NTAzNjU5MDN9.H3PS1v-5ZEdx48Fgfqkq3IABWwHgM0HkIF-F7KJTroI
 
 {
   "nome": "maçã",
@@ -86,31 +82,31 @@ Authorization: Bearer ##colar aqui o token##
 
 ### Pegar o seus produtos
 GET http://localhost:3000/loja/1/myprodutos
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsIm5vbWVVc3VhcmlvIjoiaWdvciIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzUwMzYyMzAzLCJleHAiOjE3NTAzNjU5MDN9.H3PS1v-5ZEdx48Fgfqkq3IABWwHgM0HkIF-F7KJTroI
 
 
 ### Buscar todos os produtos de uma loja
-GET http://localhost:3000/loja/{idLoja}/produtos
+GET http://localhost:3000/loja/2/produtos
 Authorization: Bearer ##colar aqui o token##
 
 ### Alterar produto
-PATCH http://localhost:3000/produtos/{idProduto}
+PATCH http://localhost:3000/produtos/8
 Content-Type: application/json
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsIm5vbWVVc3VhcmlvIjoiaWdvciIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzUwMzYyMzAzLCJleHAiOjE3NTAzNjU5MDN9.H3PS1v-5ZEdx48Fgfqkq3IABWwHgM0HkIF-F7KJTroI
 
 {
   "preco": 4,
-  "quantidade": 50
+  "quantidade": 100
 }
 
 ### Deletar produto
-DELETE http://localhost:3000/produtos/{idProduto}
-Authorization: Bearer ##colar aqui o token##
+DELETE http://localhost:3000/produtos/8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsIm5vbWVVc3VhcmlvIjoiaWdvciIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzUwMzYyMzAzLCJleHAiOjE3NTAzNjU5MDN9.H3PS1v-5ZEdx48Fgfqkq3IABWwHgM0HkIF-F7KJTroI
 
 
 ### Buscar todas compras que a loja teve, 
 GET http://localhost:3000/loja/1/compras 
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsIm5vbWVVc3VhcmlvIjoiaWdvciIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzUwMzYyMzAzLCJleHAiOjE3NTAzNjU5MDN9.H3PS1v-5ZEdx48Fgfqkq3IABWwHgM0HkIF-F7KJTroI
 
 #não importa o id do link o que vai ser contado e o token, mas por algum motivo se não passar nenhum id não funciona :/
 
@@ -124,10 +120,10 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-  "nomeUsuario": "cliente2",
-  "nome": "vendedor",
-  "senha": "123456",
-  "email": "vendedor@mail.com",
+  "nomeUsuario": "murilo",
+  "nome": "murilo",
+  "senha": "senha",
+  "email": "murilo@mail.com",
   "role": "USER"
 }
 
@@ -138,8 +134,8 @@ POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-  "nomeUsuario": "cliente2",
-  "senha": "123456"
+  "nomeUsuario": "murilo",
+  "senha": "senha"
 }
 
 ### buscar todas as lojas
@@ -149,31 +145,31 @@ GET http://localhost:3000/loja
 GET http://localhost:3000/loja/1
 
 ### Buscar todos os produtos de uma loja(o de cima ja retorna produtos tbm)
-GET http://localhost:3000/loja/{idLoja}/produtos
+GET http://localhost:3000/loja/1/produtos
 
 ### Criar endereco
 POST http://localhost:3000/enderecos/user
 Content-Type: application/json
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsIm5vbWVVc3VhcmlvIjoibXVyaWxvIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTAzNjI0NDgsImV4cCI6MTc1MDM2NjA0OH0.oda2Pb1M9bcF8ZdcXDXNaVcPKNLVY79IfK_z8dMc2nE
 
 {
   "nome":"casa",
-  "rua" : "rua bonita",
+  "rua" : "Quadra QE 15 Conjunto S",
   "numero": "50",
-  "bairro": "bairro",
-  "cidade": "cidade bonita",
-  "cep": "1234567",
-  "estado":"estado bonito"
+  "bairro": "Guará II",
+  "cidade": "Guará ",
+  "cep": "71050191",
+  "estado":"DF"
 }
 
 ### Pegar todos endereços do usuario
 GET http://localhost:3000/users/endereco
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsIm5vbWVVc3VhcmlvIjoibXVyaWxvIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTAzNjI0NDgsImV4cCI6MTc1MDM2NjA0OH0.oda2Pb1M9bcF8ZdcXDXNaVcPKNLVY79IfK_z8dMc2nE
 
 ###Atulizar Endereço
-PATCH http://localhost:3000/enderecos/{idEndereço}
+PATCH http://localhost:3000/enderecos/5
 Content-Type: application/json
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsIm5vbWVVc3VhcmlvIjoibXVyaWxvIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTAzNjI0NDgsImV4cCI6MTc1MDM2NjA0OH0.oda2Pb1M9bcF8ZdcXDXNaVcPKNLVY79IfK_z8dMc2nE
 
 {
   "numero": "55"
@@ -182,12 +178,12 @@ Authorization: Bearer ##colar aqui o token##
 ### Realizar compra
 POST http://localhost:3000/compra
 Content-Type: application/json
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsIm5vbWVVc3VhcmlvIjoibXVyaWxvIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTAzNjI0NDgsImV4cCI6MTc1MDM2NjA0OH0.oda2Pb1M9bcF8ZdcXDXNaVcPKNLVY79IfK_z8dMc2nE
 
 {
   "produtoId": 1,
   "quantidade": 5,
-  "enderecoId": 2,
+  "enderecoId": 5,
   "pagamento":{
     "metodo": "pix"
   }
@@ -196,13 +192,12 @@ Authorization: Bearer ##colar aqui o token##
 
 ### Buscar compras do usuario
 GET http://localhost:3000/users/compras
-Authorization: Bearer ##colar aqui o token##
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsIm5vbWVVc3VhcmlvIjoibXVyaWxvIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTAzNjI0NDgsImV4cCI6MTc1MDM2NjA0OH0.oda2Pb1M9bcF8ZdcXDXNaVcPKNLVY79IfK_z8dMc2nE
 
 ### Alterar status da compra
-PATCH  http://localhost:3000/compra/1/status
+PATCH  http://localhost:3000/compra/2/status
 Content-Type: application/json
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsIm5vbWVVc3VhcmlvIjoibXVyaWxvIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTAzNjI0NDgsImV4cCI6MTc1MDM2NjA0OH0.oda2Pb1M9bcF8ZdcXDXNaVcPKNLVY79IfK_z8dMc2nE
 
 {
   "statusId":2
@@ -212,9 +207,9 @@ Authorization: Bearer ##colar aqui o token##
 ##Obs: uma compra so pode ser concluida quando pagamento for concluido. Se compra for cancelada pagamento vai ser automaticamente tbm
 
 ### Alterar status do pagamento
-PATCH  http://localhost:3000/pagamento/{idPagamento}/status
+PATCH  http://localhost:3000/pagamento/2/status
 Content-Type: application/json
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsIm5vbWVVc3VhcmlvIjoibXVyaWxvIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTAzNjI0NDgsImV4cCI6MTc1MDM2NjA0OH0.oda2Pb1M9bcF8ZdcXDXNaVcPKNLVY79IfK_z8dMc2nE
 
 {
   "statusId":2
@@ -223,14 +218,14 @@ Authorization: Bearer ##colar aqui o token##
 
 ### Pegar detalhes do user
 GET http://localhost:3000/users/1
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsIm5vbWVVc3VhcmlvIjoibXVyaWxvIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTAzNjI0NDgsImV4cCI6MTc1MDM2NjA0OH0.oda2Pb1M9bcF8ZdcXDXNaVcPKNLVY79IfK_z8dMc2nE
 
 #não importa o id do link o que vai ser contado e o token, mas por algum motivo se não passar nenhum id não funciona :/
 
 ### Adicionar loja favorita
 POST http://localhost:3000/favoritos
 Content-Type: application/json
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsIm5vbWVVc3VhcmlvIjoibXVyaWxvIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTAzNjI0NDgsImV4cCI6MTc1MDM2NjA0OH0.oda2Pb1M9bcF8ZdcXDXNaVcPKNLVY79IfK_z8dMc2nE
 
 {
   "idLoja": 1
@@ -238,16 +233,16 @@ Authorization: Bearer ##colar aqui o token##
 
 ### Pegar suas lojas favoritas
 GET http://localhost:3000/favoritos
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsIm5vbWVVc3VhcmlvIjoibXVyaWxvIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTAzNjI0NDgsImV4cCI6MTc1MDM2NjA0OH0.oda2Pb1M9bcF8ZdcXDXNaVcPKNLVY79IfK_z8dMc2nE
 
 ### Retirar favorito de uma loja
 DELETE http://localhost:3000/favoritos/1
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsIm5vbWVVc3VhcmlvIjoibXVyaWxvIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTAzNjI0NDgsImV4cCI6MTc1MDM2NjA0OH0.oda2Pb1M9bcF8ZdcXDXNaVcPKNLVY79IfK_z8dMc2nE
 
 ### Realizar Avaliação
 POST http://localhost:3000/avaliacao
 Content-Type: application/json
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsIm5vbWVVc3VhcmlvIjoibXVyaWxvIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTAzNjI0NDgsImV4cCI6MTc1MDM2NjA0OH0.oda2Pb1M9bcF8ZdcXDXNaVcPKNLVY79IfK_z8dMc2nE
 
 {
   "nota": 1,
@@ -257,15 +252,16 @@ Authorization: Bearer ##colar aqui o token##
 
 ### Pegar todas avaliação de uma loja
 GET http://localhost:3000/avaliacao/loja/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsIm5vbWVVc3VhcmlvIjoibXVyaWxvIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTAzNjI0NDgsImV4cCI6MTc1MDM2NjA0OH0.oda2Pb1M9bcF8ZdcXDXNaVcPKNLVY79IfK_z8dMc2nE
 
 ###Pegar todas avaliação de um usuario
 GET http://localhost:3000/avaliacao/user/
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsIm5vbWVVc3VhcmlvIjoibXVyaWxvIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTAzNjI0NDgsImV4cCI6MTc1MDM2NjA0OH0.oda2Pb1M9bcF8ZdcXDXNaVcPKNLVY79IfK_z8dMc2nE
 
 ###Editar uma avaliação
-PATCH http://localhost:3000/avaliacao/1
+PATCH http://localhost:3000/avaliacao/2
 Content-Type: application/json
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsIm5vbWVVc3VhcmlvIjoibXVyaWxvIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTAzNjI0NDgsImV4cCI6MTc1MDM2NjA0OH0.oda2Pb1M9bcF8ZdcXDXNaVcPKNLVY79IfK_z8dMc2nE
 
 {
   "nota": 2,
@@ -273,5 +269,5 @@ Authorization: Bearer ##colar aqui o token##
 }
 
 ###Deletar uma avalição
-DELETE http://localhost:3000/avaliacao/1
-Authorization: Bearer ##colar aqui o token##
+DELETE http://localhost:3000/avaliacao/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsIm5vbWVVc3VhcmlvIjoibXVyaWxvIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTAzNjI0NDgsImV4cCI6MTc1MDM2NjA0OH0.oda2Pb1M9bcF8ZdcXDXNaVcPKNLVY79IfK_z8dMc2nE

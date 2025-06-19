@@ -38,7 +38,7 @@ export class LojaController {
   @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Roles(UserRole.ADMIN, UserRole.MANAGER)
   getMyProdutos(@Param('id') id: string,@Req() req: any) {
-    return this.lojaService.getLojaProdutos(req.user.userId);
+    return this.lojaService.getMyProdutos(req.user.userId);
   }
 
   @Get(':id/myloja')
@@ -65,7 +65,7 @@ export class LojaController {
   @UseGuards(AuthGuard('jwt'), RolesGuard) 
   @Roles(UserRole.ADMIN, UserRole.MANAGER)
   update(@Req() req: any, @Body() updateLojaDto: UpdateLojaDto) {
-    return this.lojaService.update(req.user.UserId, updateLojaDto);
+    return this.lojaService.update(req.user.userId, updateLojaDto);
   }
 
   @Delete(':id')

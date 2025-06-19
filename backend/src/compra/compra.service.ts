@@ -112,11 +112,14 @@ return await this.compraRepository.save(compra);
         throw new ForbiddenException('O pagamento ainda não foi concluído.');
       }
       compra.status.id = 2;
+      compra.status.nome = "cocluido";
       break;
 
     case 3: // Cancelar
       compra.status.id = 3;
+      compra.status.nome = "cancelado";
       compra.pagamento.status.id = 3;
+      compra.pagamento.status.nome = "cancelado";
       await this.pagamentoRepository.save(compra.pagamento);
       break;
 
