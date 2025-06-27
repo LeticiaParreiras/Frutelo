@@ -16,7 +16,7 @@
     color: white;
 }
 
-.logout-button {
+.home-header button{
   background-color: #ffffff;
   color: #4CAF50 ;
   border: 2px solid white;
@@ -25,7 +25,13 @@
   cursor: pointer;
 }
 
-.logout-button:hover{
+button img{
+  width: 30px;
+  display: inline;
+  padding-right: 10px;
+}
+
+.home-header button:hover{
     background-color: #4CAF50;
     color: white;
 }
@@ -89,4 +95,11 @@ h2{
 
 .endereco-container{
   padding: 15px;
+}
+
+.title{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
 }
