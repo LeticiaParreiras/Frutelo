@@ -1,25 +1,24 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
-import { logout } from '../services/auth';
 import '../assets/styles/home.css'
 import type { Loja } from '../assets/interface/Loja';
 
-export default function HomeCliente() {
-  const [lojas, setLojas] = useState<Loja[]>([]);
+export default function Favoritos() {
+   const [favoritos, setFavoritos] = useState<Favorito[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    async function fetchLojas() {
+    async function fetchFavoritos() {
       try {
-        const res = await api.get('/loja');
-        setLojas(res.data);
+        const res = await api.get('/favoritos');
+        setFavoritos(res.data);
       } catch {
         alert('Erro ao carregar lojas');
       }
     }
 
-    fetchLojas();
+    fetchFavoritos();
   }, []);
 
    const handleLogout = () => {
@@ -29,22 +28,20 @@ export default function HomeCliente() {
 
   return (
     <>
-    <header className="home-header">
+      <header className="home-header">
         <h1>Frutelo</h1>
         <button className="button" onClick={handleLogout}>Sair</button>
       </header>
-      
       <div className="home-container">
-        <div className="title">
-      <h2>Lojas</h2>
-      <button onClick={() => navigate(`/favoritos`)}><img src="/heart.svg" alt="coração" />Favoritos</button>
-        </div>
+        <p onClick={()=> navigate('/homeclient')} className='back'> &lt;</p>
+        <h2>Lojas Favoritas</h2>
       <div className="loja-list">
-        {lojas.length > 0 ? ( 
-          lojas.map((loja: Loja) => (
-            <div key={loja.id} className="loja-card" onClick={() => navigate(`/loja/${loja.id}`)}>
-              <h3>{loja.nome}</h3>
-              <p>{loja.descricao}</p>
+        {favoritos.length > 0 ? ( 
+          favoritos.map((fav) => (
+            <div key={fav.Loja.id} className="loja-card" onClick={() => navigate(`/loja/${fav.Loja.id}`)}>
+              <h3>{fav.Loja.nome}</h3>
+              <p>{fav.Loja.descricao}</p>
+              
             </div>
           ))
         ) : (

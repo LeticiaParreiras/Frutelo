@@ -9,6 +9,7 @@ import EditarProduto from './pages/EditarProduto';
 import AdicionarProduto from './pages/AdicionarProduto';
 import HomeCliente from './pages/homeClient';
 import LojaDetalhes from './pages/loja';
+import Favoritos from './pages/favoritos';
 
 export default function Router() {
   return (
@@ -24,6 +25,7 @@ export default function Router() {
           <Route path="/adicionar-produto" element={<AdicionarProduto />} />
           <Route path='/homeclient' element={<HomeCliente/>}/>
           <Route path='loja/:id' element= {<LojaDetalhes/>}/>
+          <Route path='favoritos' element= {<Favoritos/>}/>
 
       </Routes>
     </BrowserRouter>

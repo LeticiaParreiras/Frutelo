@@ -17,7 +17,6 @@ export class LojaController {
   @UseGuards(AuthGuard('jwt'), RolesGuard) 
   @Roles(UserRole.ADMIN, UserRole.MANAGER)
   createLoja(@Req() req: any, @Body() dto: CreateLojaDto)  {
-    console.log(req.user);
     return this.lojaService.create(dto, req.user.userId);
   }
 

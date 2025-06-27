@@ -44,6 +44,20 @@ export class FavoritosService {
     return favs;
   }
 
+  async LojaIsFavorita(lojaId: number, userId: number) {
+  const user = await this.userRepository.findOne({ where: { id: userId } });
+    if(!user) {
+        throw new ForbiddenException('Erro: Houve um erro ao localizar Usuário');
+      }
+    const favs = await this.repository.find({ where: { user: user
+, Loja: { id: lojaId }
+     }, relations: ['Loja','user'] });
+    if (favs.length === 0)  return false; // Loja não está favoritada
+
+    return true; // Loja está favoritada
+  
+  }
+
   findOne(id: number) {
     return `This action returns a #${id} favorito`;
   }

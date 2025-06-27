@@ -13,12 +13,4 @@ export interface Loja {
     estado: string;
   }
 
-  produtos: {
-    id: number;
-    nome: string;
-    descricao: string;
-    preco: number;
-    quantidade: number;
-  }
-
 }

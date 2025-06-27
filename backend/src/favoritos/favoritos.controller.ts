@@ -31,6 +31,13 @@ export class FavoritosController {
     return this.favoritosService.findAll(req.user.userId);
   }
 
+  @Get('/loja/:id')
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
+  @Roles(UserRole.ADMIN, UserRole.USER)
+  LojaIsFavorita(@Param('id') id: string, @Req() req: any) {
+    return this.favoritosService.LojaIsFavorita(+id, req.user.userId);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.favoritosService.findOne(+id);
