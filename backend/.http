@@ -138,8 +138,8 @@ POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-  "nomeUsuario": "cliente2",
-  "senha": "123456"
+  "nomeUsuario": "cliente",
+  "senha": "senha"
 }
 
 ### buscar todas as lojas
@@ -238,11 +238,15 @@ Authorization: Bearer ##colar aqui o token##
 
 ### Pegar suas lojas favoritas
 GET http://localhost:3000/favoritos
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsIm5vbWVVc3VhcmlvIjoiY2xpZW50ZSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzUwOTg3OTQ1LCJleHAiOjE3NTA5OTE1NDV9.fWEpFNftnrJA-LNrHI6chGV3DhgT9v0Yv3dsMCmQ11E
 
 ### Retirar favorito de uma loja
 DELETE http://localhost:3000/favoritos/1
-Authorization: Bearer ##colar aqui o token##
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsIm5vbWVVc3VhcmlvIjoiY2xpZW50ZSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzUwOTg3OTQ1LCJleHAiOjE3NTA5OTE1NDV9.fWEpFNftnrJA-LNrHI6chGV3DhgT9v0Yv3dsMCmQ11E
+
+### Ver se a loja esta favoritada
+GET http://localhost:3000/favoritos/loja/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsIm5vbWVVc3VhcmlvIjoiY2xpZW50ZSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzUwOTg3OTQ1LCJleHAiOjE3NTA5OTE1NDV9.fWEpFNftnrJA-LNrHI6chGV3DhgT9v0Yv3dsMCmQ11E
 
 ### Realizar Avaliação
 POST http://localhost:3000/avaliacao
@@ -275,3 +279,4 @@ Authorization: Bearer ##colar aqui o token##
 ###Deletar uma avalição
 DELETE http://localhost:3000/avaliacao/1
 Authorization: Bearer ##colar aqui o token##
+

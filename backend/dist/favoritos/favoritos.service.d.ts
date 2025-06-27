@@ -11,6 +11,7 @@ export declare class FavoritosService {
     constructor(repository: Repository<Favorito>, userRepository: Repository<User>, lojaRepository: Repository<Loja>);
     create(dto: CreateFavoritoDto, userId: number): Promise<Favorito>;
     findAll(userId: number): Promise<Favorito[]>;
+    LojaIsFavorita(lojaId: number, userId: number): Promise<boolean>;
     findOne(id: number): string;
     update(id: number, updateFavoritoDto: UpdateFavoritoDto): string;
     remove(lojaId: number, userId: number): Promise<Favorito[]>;

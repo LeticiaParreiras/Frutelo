@@ -6,6 +6,7 @@ export declare class FavoritosController {
     constructor(favoritosService: FavoritosService);
     create(createFavoritoDto: CreateFavoritoDto, req: any): Promise<import("./entities/favorito.entity").Favorito>;
     findAll(req: any): Promise<import("./entities/favorito.entity").Favorito[]>;
+    LojaIsFavorita(id: string, req: any): Promise<boolean>;
     findOne(id: string): string;
     update(id: string, updateFavoritoDto: UpdateFavoritoDto): string;
     remove(id: string, req: any): Promise<import("./entities/favorito.entity").Favorito[]>;

@@ -33,6 +33,9 @@ let FavoritosController = class FavoritosController {
     findAll(req) {
         return this.favoritosService.findAll(req.user.userId);
     }
+    LojaIsFavorita(id, req) {
+        return this.favoritosService.LojaIsFavorita(+id, req.user.userId);
+    }
     findOne(id) {
         return this.favoritosService.findOne(+id);
     }
@@ -63,6 +66,16 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], FavoritosController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Get)('/loja/:id'),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RolesGuard),
+    (0, roles_decorator_1.Roles)(user_entity_1.UserRole.ADMIN, user_entity_1.UserRole.USER),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", void 0)
+], FavoritosController.prototype, "LojaIsFavorita", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
