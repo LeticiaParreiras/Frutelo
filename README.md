@@ -2,14 +2,6 @@
 
 Frutelo é uma aplicação inspirada no modelo do iFood, com foco em hortifrúti.
 
-## Alunos 
-- Lucas Gean Batista Jacobina Airton        UC24101143
-- Igor Prado Sudo                           UC24101439   
-- Mariana Urani Barros                      UC24101542
-- Leticia Ximenes Parreiras                 UC24103043
-- Murilo Fortunato Laurindo Silva           UC24101258
-- Gustavo Henrique de Oliveira Teles        UC24100241
-
 ## 🚀 Como instalar o projeto
 
 Clone o repositório e entre na pasta do projeto:
@@ -36,14 +28,6 @@ npm run start:dev
 ```
 # 📫 Como testar a API
 Você pode testar a API de duas formas:
-
-## Via Swagger
-
-Acesse no navegador:
-
-http://localhost:3000/api
-
-Lá você encontra a documentação interativa da API.
 
 ## Via arquivo .http
 
