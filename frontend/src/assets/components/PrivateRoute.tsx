@@ -1,10 +1,7 @@
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { isAuthenticated } from '../../services/auth';
 
-interface Props {
-  children: JSX.Element;
-}
 
-export default function PrivateRoute({ children }: Props) {
-  return isAuthenticated() ? children : <Navigate to="/login" />;
+export default function PrivateRoute() {
+  return isAuthenticated() ? <Outlet/> : <Navigate to="/login" />;
 }

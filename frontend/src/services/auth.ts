@@ -34,3 +34,7 @@ export const logout = () => {
 export const isAuthenticated = () => {
   return !!localStorage.getItem('token');
 };
+
+export const getRole = () => {
+  return localStorage.getItem('role');
+}

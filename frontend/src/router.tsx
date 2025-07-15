@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/login';
 import Register from './pages/register';
-//import PrivateRoute from './assets/components/PrivateRoute';
+import PrivateRoute from './assets/components/PrivateRoute';
 import CriarLoja from './pages/criarLoja';
 import HomeManager from './pages/homemanager';
 import HomeRedirect from './pages/homeRedirect';
@@ -17,6 +17,7 @@ export default function Router() {
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route element={<PrivateRoute roles={['ADMIN','MANAGER']} />}>
           <Route path="/homeRedirect" element={<HomeRedirect />} />
           <Route path="/criarloja" element={<CriarLoja />} />
           <Route path="/homemanager" element={<HomeManager />} />
@@ -24,6 +25,8 @@ export default function Router() {
           <Route path="/adicionar-produto" element={<AdicionarProduto />} />
           <Route path='/homeclient' element={<HomeCliente/>}/>
           <Route path='loja/:id' element= {<LojaDetalhes/>}/>
+          <Route path='favoritos' element= {<Favoritos/>}/>
+        </Route>
 
       </Routes>
     </BrowserRouter>
