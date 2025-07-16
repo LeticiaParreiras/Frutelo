@@ -7,9 +7,7 @@ import { Pagamento } from 'src/pagamento/entities/pagamento.entity';
 import { Produto } from 'src/produtos/entities/produto.entity';
 import { UpdateCompraDto } from './dto/update-compra.dto';
 import { User } from 'src/user/entities/user.entity';
-import { Endereco } from 'src/enderecos/entities/endereco.entity';
-import { Loja } from 'src/loja/entities/loja.entity';
-
+import { ItemDto } from './dto/item.dto';
 @Injectable()
 export class CompraService {
 
@@ -23,20 +21,16 @@ export class CompraService {
   private produtoRepository: Repository<Produto>,
   @InjectRepository(User)
   private userRepository: Repository<User>,
-  @InjectRepository(Endereco)
-  private enderecoRepository: Repository<Endereco>,
-  @InjectRepository(Loja)
-  private lojaRepository: Repository<Loja>,
   ) {}
 
   async create(dto: CreateCompraDto,  userId: number) {
-  const produto = await this.produtoRepository.findOne({
-    where: { id: dto.produtoId },
-    relations: ['loja'],
-  });
-
-  if (!produto) {
-    throw new NotFoundException('Produto não encontrado');
+  for (const item of dto.items) {
+    const produto = await this.produtoRepository.findOne({
+      where: { id: item.produtoId },
+    });
+    if (!produto) {
+      throw new NotFoundException('Produto não encontrado');
+    }
   }
 
   const cliente = await this.userRepository.findOne({
@@ -46,38 +40,17 @@ export class CompraService {
 if (!cliente) {
   throw new ForbiddenException('Erro: Usuário não autorizado a realizar compras.');
 }
-const endereco = await this.enderecoRepository.findOne({
-  where: {
-    id: dto.enderecoId,
-    cliente: { id: userId }
-  },
-  relations: ['cliente']
-});
-
-if (!endereco) {
-  throw new ForbiddenException('O endereço não pertence ao usuário autenticado.');
-}
-
-const valorTotal = produto.preco * dto.quantidade;
-
-const pagamento = this.pagamentoRepository.create({
-  metodo: dto.pagamento.metodo,
-  valor: valorTotal,
-  status: {id:1},// Pendente
-});
 
   const compra = this.compraRepository.create({
-    data: new Date(),
-    status: { id: 1 }, // Pendente
-    quantidade: dto.quantidade,
-    produto: produto,
     cliente: cliente,
-    pagamento: pagamento,
-    Endereco: endereco,
-    loja: produto.loja,
+     itens: dto.items.map(item => ({
+      preco: item.preco,
+      quantidade: item.quantidade,
+      produto: { id: item.produtoId } as Produto, // Associa o produto pelo ID
+      compra: compra, // Associa a compra
+    })),
   });
-
-return await this.compraRepository.save(compra);
+  return await this.compraRepository.save(compra);
   }
 
   async findAll() {
