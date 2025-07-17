@@ -1,5 +1,4 @@
 import { IsNumber, Min } from "class-validator";
-
 export class ItemDto {
   @IsNumber()
   produtoId: number;
@@ -8,6 +7,4 @@ export class ItemDto {
   @Min(0, { message: 'O valor deve ser positivo' })
   quantidade: number;
 
-  @IsNumber()
-  preco: number;
 }

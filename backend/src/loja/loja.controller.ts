@@ -48,12 +48,14 @@ export class LojaController {
     return this.lojaService.myLoja(req.user.userId);
   }
 
+  /*
   @Get(':id/compras') //por algum motivo se não passar o id, não funciona
   @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Roles(UserRole.ADMIN, UserRole.MANAGER)
   findAllByLoja(@Param('id') id: string, @Req() req: any) {
     return this.lojaService.findAComprasByLoja(req.user.userId);
   }
+  */
   @Get('/endereco')
   @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Roles(UserRole.ADMIN, UserRole.MANAGER)

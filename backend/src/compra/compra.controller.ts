@@ -48,13 +48,6 @@ export class CompraController {
     return this.compraService.update(+id, updateCompraDto);
   }*/
 
-  @Patch(':id/status')
-  @UseGuards(AuthGuard('jwt'), RolesGuard) 
-  @Roles(UserRole.ADMIN,UserRole.USER)
-  async updateStatus(@Param('id') id: string, @Body() updateCompraDto: UpdateCompraDto , @Req() req: any){
-    return this.compraService.updateStatus(+id,req.user.userId,updateCompraDto)
-  }
-
   @Delete(':id')
   @UseGuards(AuthGuard('jwt'), RolesGuard) 
   @Roles(UserRole.ADMIN)

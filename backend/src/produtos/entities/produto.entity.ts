@@ -1,4 +1,4 @@
-import { Compra } from "src/compra/entities/compra.entity";
+import { Itens } from "src/compra/entities/itens.entity";
 import { Loja } from "src/loja/entities/loja.entity";
 import { Column, Entity,JoinColumn,ManyToOne,OneToMany,PrimaryGeneratedColumn} from "typeorm";
 
@@ -23,6 +23,6 @@ export class Produto {
     @JoinColumn({ name: 'loja_id' }) 
     loja: Loja;
     
-    @OneToMany(() => Compra, (Compra) => Compra.produto)
-    Compras: Compra[];
+    @OneToMany(() => Itens, (Itens) => Itens.produto) //Relecionamento com Itens de compra
+    Itens: Itens[];
 }

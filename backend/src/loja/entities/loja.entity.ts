@@ -1,10 +1,10 @@
 import { Avaliacao } from "src/avaliacao/entities/avaliacao.entity";
-import { Compra } from "src/compra/entities/compra.entity";
 import { Endereco } from "src/enderecos/entities/endereco.entity";
 import { Favorito } from "src/favoritos/entities/favorito.entity";
 import { Produto } from "src/produtos/entities/produto.entity";
 import { User } from "src/user/entities/user.entity";
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, OneToOne, JoinColumn } from "typeorm";
+import { Itens } from "src/compra/entities/itens.entity";
 
 @Entity("Loja")
 export class Loja {
@@ -28,8 +28,8 @@ export class Loja {
     @JoinColumn({ name: 'endereco_id' })
     Endereco: Endereco;
 
-    @OneToMany(() => Compra, (compras) => compras.loja)
-    compras: Compra[];
+    @OneToMany(() => Itens, (Itens) => Itens.loja)
+    Itens: Itens[];
 
     @OneToMany(() => Avaliacao,(avaliacao) => avaliacao.loja)
     avaliacao: Avaliacao[];

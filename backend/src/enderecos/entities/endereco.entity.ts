@@ -30,13 +30,11 @@ export class Endereco {
   cep: string;
 
   @ManyToOne(() => User, user => user.endereco)
-@JoinColumn({ name: 'cliente_id' })
-cliente: User;
+  @JoinColumn({ name: 'cliente_id' })
+  cliente: User;
 
   
   @OneToOne(() => Loja, loja => loja.Endereco)
-loja: Loja;
+  loja: Loja;
 
-@OneToMany(() => Compra, compras => compras.Endereco)
-  compras: Compra[];
 }

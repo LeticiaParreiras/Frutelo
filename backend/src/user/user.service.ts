@@ -1,10 +1,7 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
-import { Loja } from '../loja/entities/loja.entity';
 import { Compra } from '../compra/entities/compra.entity';
 import { Endereco } from 'src/enderecos/entities/endereco.entity';
 
@@ -14,8 +11,6 @@ export class UsersService {
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
-    @InjectRepository(Loja)
-    private readonly lojaRepository: Repository<Loja>,
     @InjectRepository(Compra)
     private readonly compraRepository: Repository<Compra>,
     @InjectRepository(Endereco)
@@ -31,10 +26,7 @@ export class UsersService {
         id: userId,
       },
     },
-    relations: ['produto', 'pagamento'],
-    order: {
-      data: 'DESC'
-    },
+    relations: ['itens', 'itens.produto', 'itens.loja'],
   });
 
   return compras;

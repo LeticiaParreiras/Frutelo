@@ -7,7 +7,7 @@ import { Repository } from 'typeorm/repository/Repository';
 import { Produto } from 'src/produtos/entities/produto.entity';
 import { User } from 'src/user/entities/user.entity';
 import { Compra } from 'src/compra/entities/compra.entity';
-import { Endereco } from 'src/enderecos/entities/endereco.entity';
+
 
 @Injectable()
 export class LojaService {
@@ -18,8 +18,6 @@ export class LojaService {
     private readonly userRepository: Repository<User>,
     @InjectRepository(Compra)
     private readonly compraRepository: Repository<Compra>,
-    @InjectRepository(Endereco)
-    private readonly enderecoRepository: Repository<Endereco>,
 
   ) {}
 
@@ -83,6 +81,7 @@ async getMyProdutos(userId: number): Promise<Produto[]> {
 
     return loja.produtos;
   }
+  /*
    async findAComprasByLoja(userId: number){
       const compras = await this.compraRepository.find({
         where: { loja:{vendedor:{ id: userId } }},
@@ -95,6 +94,7 @@ async getMyProdutos(userId: number): Promise<Produto[]> {
   
       return compras;
     }
+      */
 
   async getLojaEndereco(userId : number) {
       const endereco = await this.repository.findOne({
